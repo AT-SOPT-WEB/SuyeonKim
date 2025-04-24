@@ -1,0 +1,126 @@
+:root {
+    --primary: #FF71B8;
+    --sub: #FFB6FC;
+    --gray1:#F7F7F7;
+    --gray2:#C3C3C3;
+    --gray3:#6F6F6F;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 20px 200px;
+}
+
+header {
+    padding: 12px 0px;
+}
+
+.filter-container {
+    padding: 8px 0px;
+}
+
+.total-button, 
+.completed-button, 
+.incomplete-button, 
+.importance-button {
+    width: 60px;
+    height: 24px;
+    border-radius: 4px;
+    border-style: none;
+    background-color: var(--gray2);
+    color: white;
+    font-size: 14px;
+}
+
+.total-button:hover,
+.completed-button:hover,
+.incomplete-button:hover,
+.importance-button:hover {
+    background-color: var(--gray3);
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.add-container {
+    margin: 8px 0px 20px 0px;
+    width: 100%;
+    display: flex;
+    gap: 4px;
+    box-sizing: border-box;
+}
+
+.todo-input {
+    flex: 1;
+    height: 28px;
+    padding: 0 8px 0 8px;
+    font-size: 14px;
+}
+
+.importance-select {
+    width: 100px;
+    height: 32px;
+    padding: 0 4px 0 4px;
+    font-size: 14px;
+}
+
+.add-button {
+    width: 60px;
+    height: 32px;
+    border-radius: 4px;
+    border-style: none;
+    background-color: var(--primary);
+    color: white;
+    font-size: 14px;
+}
+
+.add-button:hover {
+    background-color: var(--sub);
+}
+
+.todo-table {
+    width: 100%;
+    text-align: left;
+    font-size: 14px;
+    border-collapse: collapse;
+}
+
+.todo-table th,
+.todo-table td {
+    padding: 4px 0px;
+}
+
+.todo-table tr:first-of-type {
+    border-bottom: 1px solid var(--gray3);
+}
+
+.todo-table tr:not(:first-of-type) {
+    border-bottom: 1px solid var(--gray2);
+}
+
+.todo-table th:nth-child(1),
+.todo-table td:nth-child(1) {
+    width: 5%;
+}
+
+.todo-table th:nth-child(2),
+.todo-table td:nth-child(2) {
+    width: 10%;
+}
+
+.todo-table th:nth-child(3),
+.todo-table td:nth-child(3) {
+    width: 10%;
+}
+
+.todo-table th:nth-child(4),
+.todo-table td:nth-child(4) {
+    width: 75%;
+}

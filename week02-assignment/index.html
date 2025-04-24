@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO LIST</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <header>
+        <h3>💝 투두 체크리스트 💝</h3>
+    </header>
+
+    <div class="filter-container">
+        <button class="total-button">전체</button>
+        <button class="completed-button">완료됨</button>
+        <button class="incomplete-button">미완료</button>
+        <button class="importance-button">중요도</button>
+    </div>
+
+    <section class="main">
+        <div class="add-container">
+            <input class="todo-input" placeholder="할 일을 입력하세요!"></input>
+            <select class="importance-select">
+                <option value="">중요도 선택</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+            <button class="add-button">추가</button>
+        </div>
+
+        <table class="todo-table">
+            <tr>
+                <th scope="col"><input type="checkbox"></th>
+                <th scope="col">중요도</th>
+                <th scope="col">완료됨</th>
+                <th scope="col">할 일</th>
+            </tr>
+            <!-- 예시 데이터 행 -->
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>3</td>
+                <td>O</td>
+                <td>세미나 과제하기</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>1</td>
+                <td>O</td>
+                <td>책 읽기</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>2</td>
+                <td>X</td>
+                <td>알고리즘 풀기</td>
+            </tr>
+        </table>
+    </section>
+</body>
+</html>
