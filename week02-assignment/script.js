@@ -132,6 +132,13 @@ threadCheckbox.addEventListener('change', () => {
     });
 });
 
+tbody.addEventListener('change', (event) => {
+    const rowCheckboxes = tbody.querySelectorAll('input[type="checkbox"]');
+    const allChecked = Array.from(rowCheckboxes).every(checkbox => checkbox.checked);
+
+    threadCheckbox.checked = allChecked;
+});
+
 function renderTodos(todos) {
     tbody.innerHTML = '';
 
