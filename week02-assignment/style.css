@@ -1,7 +1,7 @@
 :root {
     --primary: #FF71B8;
     --sub: #FFA1D0;
-    --gray1:#FAFAFA;
+    --gray1:#FBFBFB;
     --gray2:#C3C3C3;
     --gray3:#6F6F6F;
 }
@@ -111,13 +111,14 @@ body {
 .todo-table th,
 .todo-table td {
     padding: 4px 0px;
+    height: 24px;
 }
 
-.todo-table tr:first-of-type {
+.todo-table thead tr {
     border-bottom: 1px solid black;
 }
 
-.todo-table tr:not(:first-of-type) {
+.todo-table tbody tr {
     border-bottom: 1px solid var(--gray2);
 }
 
