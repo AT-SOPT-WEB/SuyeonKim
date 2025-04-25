@@ -14,9 +14,17 @@
         <button class="total-button">전체</button>
         <button class="completed-button">완료됨</button>
         <button class="incomplete-button">미완료</button>
-        <button class="importance-button">
-            <span>중요도 <img src="image/polygon.svg" alt="polygon" width="12px" /></span>
-        </button>
+        <div class="importance-wrapper">
+            <button class="importance-button">
+                <span>중요도 <img src="image/polygon.svg" alt="polygon" width="12px" /></span>
+            </button>
+
+            <div class="importance-dropdown hidden">
+                <div data-priority="1">1</div>
+                <div data-priority="2">2</div>
+                <div data-priority="3">3</div>
+            </div>
+        </div>
     </div>
 
     <section class="main">

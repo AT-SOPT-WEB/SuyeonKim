@@ -44,6 +44,35 @@ body {
     cursor: pointer;
 }
 
+.importance-wrapper {
+    display: inline-block;
+}
+
+.importance-dropdown {
+    position: absolute;
+    background: white;
+    width: 68px;
+    margin-top: 4px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    z-index: 1000;
+}
+
+.importance-dropdown div {
+    height: 16px;
+    padding: 8px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.importance-dropdown div:hover {
+    background-color: var(--sub);
+}
+
+.hidden {
+    display: none;
+}
+
 .main {
     display: flex;
     flex-direction: column;

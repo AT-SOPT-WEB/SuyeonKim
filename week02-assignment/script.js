@@ -6,6 +6,8 @@ const tbody = table.querySelector('tbody');
 const totalButton = document.querySelector(".total-button");
 const completedButton = document.querySelector(".completed-button");
 const incompleteButton = document.querySelector(".incomplete-button");
+const importanceButton = document.querySelector('.importance-button');
+const importanceDropdown = document.querySelector('.importance-dropdown');
 
 const todoInput = document.querySelector(".todo-input");
 const importanceSelect = document.querySelector(".importance-select");
@@ -32,6 +34,25 @@ completedButton.addEventListener('click', () => {
 incompleteButton.addEventListener('click', () => {
     const incompleteTodos = storedTodos.filter(todo => !todo.completed);
     renderTodos(incompleteTodos);
+});
+
+importanceButton.addEventListener('click', () => {
+    importanceDropdown.classList.toggle('hidden');
+});
+
+importanceDropdown.addEventListener('click', (event) => {
+    const selected = event.target.dataset.priority;
+    
+    const filtered = storedTodos.filter(todo => todo.priority === Number(selected));
+    renderTodos(filtered);
+
+    importanceDropdown.classList.add('hidden');
+});
+
+document.addEventListener('click', (e) => {
+    if (!importanceButton.contains(e.target) && !importanceDropdown.contains(e.target)) {
+        importanceDropdown.classList.add('hidden');
+    }
 });
 
 addButton.addEventListener('click', () => {
