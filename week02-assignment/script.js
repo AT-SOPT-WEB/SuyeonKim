@@ -2,6 +2,7 @@ import { todos } from './mock/dummyTodos.js';
 
 const table = document.querySelector('.todo-table');
 const tbody = table.querySelector('tbody');
+const threadCheckbox = document.querySelector('.thread-checkbox');
 
 const totalButton = document.querySelector(".total-button");
 const completedButton = document.querySelector(".completed-button");
@@ -81,10 +82,16 @@ addButton.addEventListener('click', () => {
 deleteButton.addEventListener('click', () => {
     const checkboxes = tbody.querySelectorAll('input[type="checkbox"]');
 
+    const indicesToDelete = [];
+
     checkboxes.forEach((checkbox, index) => {
         if (checkbox.checked) {
-            storedTodos.splice(index, 1);
+            indicesToDelete.push(index);
         }
+
+        indicesToDelete.reverse().forEach(index => {
+            storedTodos.splice(index, 1);
+        });
     });
 
     localStorage.setItem('todos', JSON.stringify(storedTodos));
@@ -116,6 +123,13 @@ window.addEventListener("click", (event) => {
     if (event.target === modal) {
         modal.style.display = "none";
     }
+});
+
+threadCheckbox.addEventListener('change', () => {
+    const rowCheckboxes = tbody.querySelectorAll('input[type="checkbox"]');
+    rowCheckboxes.forEach(checkbox => {
+        checkbox.checked = threadCheckbox.checked;
+    });
 });
 
 function renderTodos(todos) {
