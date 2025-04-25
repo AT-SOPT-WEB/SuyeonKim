@@ -32,6 +32,10 @@ body {
     font-size: 14px;
 }
 
+.importance-button {
+    width: 68px;
+}
+
 .total-button:hover,
 .completed-button:hover,
 .incomplete-button:hover,
