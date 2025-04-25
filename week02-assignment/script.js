@@ -121,8 +121,11 @@ window.addEventListener("click", (event) => {
 function renderTodos(todos) {
     tbody.innerHTML = '';
 
-    todos.forEach(todo => {
+    todos.forEach((todo, index) => {
         const tr = document.createElement('tr');
+
+        tr.setAttribute('draggable', 'true');
+        tr.setAttribute('data-index', index);
 
         tr.innerHTML = `
             <td><input type="checkbox" /></td>
@@ -132,6 +135,48 @@ function renderTodos(todos) {
         `;
 
         tbody.appendChild(tr);
+    });
+
+    dragAndDropHandlers();
+}
+
+function dragAndDropHandlers() {
+    const rows = tbody.querySelectorAll('tr');
+
+    let draggedIndex = null;
+
+    rows.forEach(row => {
+        row.addEventListener('dragstart', (e) => {
+            draggedIndex = Number(row.dataset.index);
+            row.classList.add('dragging');
+        });
+
+        row.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            row.classList.add('drag-over');
+        });
+
+        row.addEventListener('dragleave', () => {
+            row.classList.remove('drag-over');
+        });
+
+        row.addEventListener('drop', () => {
+            row.classList.remove('drag-over');
+            const targetIndex = Number(row.dataset.index);
+
+            if (draggedIndex !== null && draggedIndex !== targetIndex) {
+                const draggedItem = storedTodos[draggedIndex];
+                storedTodos.splice(draggedIndex, 1);
+                storedTodos.splice(targetIndex, 0, draggedItem);
+
+                localStorage.setItem('todos', JSON.stringify(storedTodos));
+                renderTodos(storedTodos);
+            }
+        });
+
+        row.addEventListener('dragend', () => {
+            row.classList.remove('dragging');
+        });
     });
 }
 
