@@ -2,12 +2,17 @@ import { todos } from './mock/dummyTodos.js';
 
 const table = document.querySelector('.todo-table');
 const tbody = table.querySelector('tbody');
+
 const totalButton = document.querySelector(".total-button");
 const completedButton = document.querySelector(".completed-button");
 const incompleteButton = document.querySelector(".incomplete-button");
+
 const todoInput = document.querySelector(".todo-input");
 const importanceSelect = document.querySelector(".importance-select");
 const addButton = document.querySelector(".add-button");
+
+const deleteButton = document.querySelector(".delete-button");
+const completeButton = document.querySelector(".complete-button");
 
 localStorage.setItem('todos', JSON.stringify(todos));
 const storedTodos = JSON.parse(localStorage.getItem('todos')) || [];
@@ -47,6 +52,36 @@ addButton.addEventListener('click', () => {
     } else {
         alert("할 일과 중요도를 모두 입력해 주세요!");
     }
+});
+
+deleteButton.addEventListener('click', () => {
+    const checkboxes = tbody.querySelectorAll('input[type="checkbox"]');
+
+    checkboxes.forEach((checkbox, index) => {
+        if (checkbox.checked) {
+            storedTodos.splice(index, 1);
+        }
+    });
+
+    localStorage.setItem('todos', JSON.stringify(storedTodos));
+    renderTodos(storedTodos);
+});
+
+completeButton.addEventListener('click', () => {
+    const checkboxes = tbody.querySelectorAll('input[type="checkbox"]');
+    
+    checkboxes.forEach((checkbox, index) => {
+        if (checkbox.checked) {
+            if (storedTodos[index].completed) {
+                alert("이미 완료된 todo입니다.");
+            } else {
+                storedTodos[index].completed = true;
+
+                localStorage.setItem('todos', JSON.stringify(storedTodos));
+                renderTodos(storedTodos);
+            }
+        }
+    });
 });
 
 function renderTodos(todos) {
