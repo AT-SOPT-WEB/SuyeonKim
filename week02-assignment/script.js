@@ -14,6 +14,9 @@ const addButton = document.querySelector(".add-button");
 const deleteButton = document.querySelector(".delete-button");
 const completeButton = document.querySelector(".complete-button");
 
+const modal = document.querySelector(".modal");
+const closeButton = document.querySelector(".close-button");
+
 localStorage.setItem('todos', JSON.stringify(todos));
 const storedTodos = JSON.parse(localStorage.getItem('todos')) || [];
 
@@ -69,11 +72,11 @@ deleteButton.addEventListener('click', () => {
 
 completeButton.addEventListener('click', () => {
     const checkboxes = tbody.querySelectorAll('input[type="checkbox"]');
-    
+
     checkboxes.forEach((checkbox, index) => {
         if (checkbox.checked) {
             if (storedTodos[index].completed) {
-                alert("이미 완료된 todo입니다.");
+                modal.style.display = "block";
             } else {
                 storedTodos[index].completed = true;
 
@@ -82,6 +85,16 @@ completeButton.addEventListener('click', () => {
             }
         }
     });
+});
+
+closeButton.addEventListener("click", () => {
+    modal.style.display = "none";
+});
+
+window.addEventListener("click", (event) => {
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
 });
 
 function renderTodos(todos) {
