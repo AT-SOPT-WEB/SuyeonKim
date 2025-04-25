@@ -1,7 +1,7 @@
 :root {
     --primary: #FF71B8;
-    --sub: #FFB6FC;
-    --gray1:#F7F7F7;
+    --sub: #FFA1D0;
+    --gray1:#FAFAFA;
     --gray2:#C3C3C3;
     --gray3:#6F6F6F;
 }
@@ -13,10 +13,6 @@
 
 body {
     margin: 20px 200px;
-}
-
-header {
-    padding: 12px 0px;
 }
 
 .filter-container {
@@ -41,20 +37,30 @@ header {
 .incomplete-button:hover,
 .importance-button:hover {
     background-color: var(--gray3);
+    cursor: pointer;
 }
 
 .main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: var(--gray1);
+    padding: 0px 8px;
 }
 
 .add-container {
-    margin: 8px 0px 20px 0px;
+    margin: 8px 0px;
     width: 100%;
     display: flex;
     gap: 4px;
     box-sizing: border-box;
+}
+
+.button-container {
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    gap: 4px;
 }
 
 .todo-input {
@@ -71,7 +77,9 @@ header {
     font-size: 14px;
 }
 
-.add-button {
+.add-button,
+.delete-button,
+.complete-button {
     width: 60px;
     height: 32px;
     border-radius: 4px;
@@ -81,14 +89,18 @@ header {
     font-size: 14px;
 }
 
-.add-button:hover {
+.add-button:hover,
+.delete-button:hover,
+.complete-button:hover {
     background-color: var(--sub);
+    cursor: pointer;
 }
 
 .todo-table {
     width: 100%;
-    text-align: left;
+    margin: 20px 0px;
     font-size: 14px;
+    text-align: center;
     border-collapse: collapse;
 }
 
@@ -98,7 +110,7 @@ header {
 }
 
 .todo-table tr:first-of-type {
-    border-bottom: 1px solid var(--gray3);
+    border-bottom: 1px solid black;
 }
 
 .todo-table tr:not(:first-of-type) {
@@ -123,4 +135,6 @@ header {
 .todo-table th:nth-child(4),
 .todo-table td:nth-child(4) {
     width: 75%;
+    text-align: left;
+    padding-left: 32px;
 }
