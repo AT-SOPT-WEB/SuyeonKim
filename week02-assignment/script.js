@@ -88,10 +88,10 @@ deleteButton.addEventListener('click', () => {
         if (checkbox.checked) {
             indicesToDelete.push(index);
         }
+    });
 
-        indicesToDelete.reverse().forEach(index => {
-            storedTodos.splice(index, 1);
-        });
+    indicesToDelete.reverse().forEach(index => {
+        storedTodos.splice(index, 1);
     });
 
     localStorage.setItem('todos', JSON.stringify(storedTodos));
