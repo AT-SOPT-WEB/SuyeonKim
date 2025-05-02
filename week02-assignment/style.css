@@ -1,0 +1,205 @@
+:root {
+    --primary: #FF71B8;
+    --sub: #FFA1D0;
+    --gray1:#FBFBFB;
+    --gray2:#C3C3C3;
+    --gray3:#6F6F6F;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 20px 200px;
+}
+
+.filter-container {
+    padding: 8px 0px;
+}
+
+.total-button, 
+.completed-button, 
+.incomplete-button, 
+.importance-button {
+    width: 60px;
+    height: 24px;
+    border-radius: 4px;
+    border-style: none;
+    background-color: var(--gray2);
+    color: white;
+    font-size: 14px;
+}
+
+.importance-button {
+    width: 68px;
+}
+
+.total-button:hover,
+.completed-button:hover,
+.incomplete-button:hover,
+.importance-button:hover {
+    background-color: var(--gray3);
+    cursor: pointer;
+}
+
+.importance-wrapper {
+    display: inline-block;
+}
+
+.importance-dropdown {
+    position: absolute;
+    background: white;
+    width: 68px;
+    margin-top: 4px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    z-index: 1000;
+}
+
+.importance-dropdown div {
+    height: 16px;
+    padding: 8px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.importance-dropdown div:hover {
+    background-color: var(--sub);
+}
+
+.hidden {
+    display: none;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--gray1);
+    padding: 0px 8px;
+}
+
+.add-container {
+    margin: 8px 0px;
+    width: 100%;
+    display: flex;
+    gap: 4px;
+    box-sizing: border-box;
+}
+
+.button-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 4px;
+}
+
+.todo-input {
+    flex: 1;
+    height: 28px;
+    padding: 0 8px 0 8px;
+    font-size: 14px;
+}
+
+.importance-select {
+    width: 100px;
+    height: 32px;
+    padding: 0 4px 0 4px;
+    font-size: 14px;
+}
+
+.add-button,
+.delete-button,
+.complete-button {
+    width: 60px;
+    height: 32px;
+    border-radius: 4px;
+    border-style: none;
+    background-color: var(--primary);
+    color: white;
+    font-size: 14px;
+}
+
+.add-button:hover,
+.delete-button:hover,
+.complete-button:hover {
+    background-color: var(--sub);
+    cursor: pointer;
+}
+
+.todo-table {
+    width: 100%;
+    margin: 20px 0px;
+    font-size: 14px;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.todo-table th,
+.todo-table td {
+    padding: 4px 0px;
+    height: 24px;
+}
+
+.todo-table thead tr {
+    border-bottom: 1px solid black;
+}
+
+.todo-table tbody tr {
+    border-bottom: 1px solid var(--gray2);
+}
+
+.todo-table th:nth-child(1),
+.todo-table td:nth-child(1) {
+    width: 5%;
+}
+
+.todo-table th:nth-child(2),
+.todo-table td:nth-child(2) {
+    width: 10%;
+}
+
+.todo-table th:nth-child(3),
+.todo-table td:nth-child(3) {
+    width: 10%;
+}
+
+.todo-table th:nth-child(4),
+.todo-table td:nth-child(4) {
+    width: 75%;
+    text-align: left;
+    padding-left: 32px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    margin: 20% auto;
+    padding: 20px;
+    width: 20%;
+    border-radius: 8px;
+}
+
+.close-button {
+    color: black;
+}
+
+.close-button:hover {
+    color: var(--gray2);
+    cursor: pointer;
+}
