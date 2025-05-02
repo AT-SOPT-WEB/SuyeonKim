@@ -92,7 +92,7 @@ body {
 .button-container {
     width: 100%;
     display: flex;
-    justify-content: right;
+    justify-content: flex-end;
     gap: 4px;
 }
 
